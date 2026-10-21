@@ -11,12 +11,6 @@
 
 <p align="center"><b>A near-real-time cryptocurrency pipeline that keeps a live price table in sync via CDC-style upserts — built end-to-end with a Kafka-protocol producer, PySpark Structured Streaming, and Delta Lake MERGE logic.</b></p>
 
-<p align="center">
-  <a href="#architecture">Architecture</a> ·
-  <a href="#data-model-target-table">Data Model</a> ·
-  <a href="#how-to-run-it">How to Run</a>
-</p>
-
 ---
 
 ## Whole Project Video Walkthrough
