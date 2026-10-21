@@ -57,15 +57,6 @@ The pipeline moves data through four stages, each narrower in scope than the las
 | **Orchestration** || Re-run the pipeline on a fixed cadence || Databricks Job, `trigger(availableNow=True)`, every 5 min |
 
 
-```mermaid
-flowchart LR
-  A[CoinGecko API] --> B[Python Producer]
-  B --> C[Azure Event Hubs<br/>Kafka protocol]
-  C --> D[Databricks<br/>Structured Streaming]
-  D --> E[Delta Lake<br/>MERGE INTO upsert]
-  F[Databricks Jobs<br/>every 5 min] -.orchestrates.-> D
-```
-
 ---
 
 ## Data Model (Target Table)
