@@ -221,7 +221,10 @@ realtime-market-data-lakehouse/
 
 ## Video Walkthrough
 
-📺 **[3–5 minute walkthrough on Loom](PASTE_YOUR_LOOM_LINK_HERE)** — covers the local-Kafka-to-Event-Hubs architecture pivot, the pipeline running end-to-end, and the intra-batch dedup bug.
+**Links to Loom Recorded Videos | 5-6 minutes** 
+1. https://www.loom.com/share/c4e97852a09e40ca8ac6aba272885683
+2. https://www.loom.com/share/5bed0a8507b44de7a193289a50965e7c
+3. https://www.loom.com/share/54f03f8f37b84d7bbc70cf6dad01c010
 
 ---
 
