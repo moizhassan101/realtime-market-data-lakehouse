@@ -1,14 +1,3 @@
-## Architecture
-
-```mermaid
-flowchart LR
-  A[CoinGecko API] --> B[Python Producer]
-  B --> C[Azure Event Hubs<br/>Kafka protocol]
-  C --> D[Databricks<br/>Structured Streaming]
-  D --> E[Delta Lake<br/>MERGE INTO upsert]
-  F[Databricks Jobs<br/>every 5 min] -.orchestrates.-> D
-```
-
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/PySpark-Structured_Streaming-E25A1C?logo=apachespark&logoColor=white" />
@@ -27,6 +16,17 @@ flowchart LR
   <a href="#data-model-target-table">Data Model</a> ·
   <a href="#how-to-run-it">How to Run</a>
 </p>
+
+---
+
+## Whole Project Video Walkthrough
+
+**Links to Loom Recorded Videos | 5-6 minutes** 
+1. https://www.loom.com/share/c4e97852a09e40ca8ac6aba272885683
+2. https://www.loom.com/share/5bed0a8507b44de7a193289a50965e7c
+3. https://www.loom.com/share/54f03f8f37b84d7bbc70cf6dad01c010
+
+---
 
 ---
 
@@ -55,6 +55,16 @@ The pipeline moves data through four stages, each narrower in scope than the las
 | **Processing** || Parse, deduplicate, and compute the latest value per coin || PySpark Structured Streaming, `foreachBatch` |
 | **Storage** || Maintain current state, not history || Delta Lake `MERGE INTO` (CDC-style upsert) |
 | **Orchestration** || Re-run the pipeline on a fixed cadence || Databricks Job, `trigger(availableNow=True)`, every 5 min |
+
+
+```mermaid
+flowchart LR
+  A[CoinGecko API] --> B[Python Producer]
+  B --> C[Azure Event Hubs<br/>Kafka protocol]
+  C --> D[Databricks<br/>Structured Streaming]
+  D --> E[Delta Lake<br/>MERGE INTO upsert]
+  F[Databricks Jobs<br/>every 5 min] -.orchestrates.-> D
+```
 
 ---
 
@@ -216,17 +226,6 @@ realtime-market-data-lakehouse/
    ```sql
    SELECT * FROM workspace.default.crypto_prices_delta;
    ```
-
----
-
-## Video Walkthrough
-
-**Links to Loom Recorded Videos | 5-6 minutes** 
-1. https://www.loom.com/share/c4e97852a09e40ca8ac6aba272885683
-2. https://www.loom.com/share/5bed0a8507b44de7a193289a50965e7c
-3. https://www.loom.com/share/54f03f8f37b84d7bbc70cf6dad01c010
-
----
 
 ## Tech Stack
 
