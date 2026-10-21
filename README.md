@@ -226,4 +226,4 @@ realtime-market-data-lakehouse/
 
 ## Author
 
-**Moiz Hassan** — [GitHub](https://github.com/moizhassan101)
+**Syed Abdul Moiz Hassan** — [GitHub](https://github.com/moizhassan101)
